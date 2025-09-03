@@ -19,6 +19,7 @@ Some examples:
 Please make sure you have Java installed on your machine to be able to run this program.
 Check if you have Java installed with the following command:
 - java -version
+
 To run the program, please do the follows:
 1. Clone the repo
 2. Using commandline, cd/go to the ShiftingCharInString/ShiftString/src
