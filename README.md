@@ -15,3 +15,10 @@ Some examples:
 - Share your solution using Github.
 - Add README with information on how to run your solution and any extra information you find relevant for your solution.
 
+# Running the program
+To run the program, please do the follows:
+1. Clone the repo
+2. Using commandline, cd/go to the ShiftingCharInString/ShiftString/src
+3. Enter 'java App' to start the program
+4. Enter valid string and a valid integer as prompted
+5. Your shifted string will be presented in the console
