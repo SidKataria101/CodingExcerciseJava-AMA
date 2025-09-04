@@ -13,7 +13,7 @@ public class App {
 
         // Perform the shift
         String result = shiftString(inputString, shiftPositions);
-        System.out.println("Shifted String: " + result);
+        System.out.println("Shifted String: \"" + result + "\"");
 
         // Close the scanner
         scanner.close();
@@ -25,7 +25,8 @@ public class App {
      * @return a validated integer
      */
     private static int getValidatedShiftInput(Scanner scanner) {
-        System.out.println("Enter number of positions to shift in range(-1000,1000): ");
+        System.out.println("Enter a number between -1000 and 1000 to shift your string by");
+        System.out.println("(negative = left shift, positive = right shift):");
         while (!scanner.hasNextInt()) {
             System.out.println("Please enter a valid integer for shift positions in range (-1000, 1000).");
             scanner.next(); // Clear invalid input
@@ -41,7 +42,7 @@ public class App {
      */
     private static String getValidatedStringInput(Scanner scanner) {
         while (true) {
-            System.out.println("Please enter a string in range(0, 1000]: ");
+            System.out.println("Please enter a string with maximum 1000 characters including whitespaces: ");
             var inputString = scanner.nextLine();
             try {
                 return validateString(inputString);
