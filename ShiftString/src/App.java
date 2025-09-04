@@ -73,7 +73,7 @@ public class App {
         // Input validation
         if (inputString == null || inputString.isEmpty()) {
             throw new IllegalArgumentException("Input string cannot be null or empty");
-        } else if (!inputString.matches("[a-zA-Z .,!?'\\-;:@#&*()]+")) {
+        } else if (!inputString.matches("[a-zA-Z0-9\\\\s.,!?'\\\\-;:@#&*()]+")) {
             throw new IllegalArgumentException("Input string must contain only alphabetic characters, spaces, and the following punctuation: . , ! ? ' - ; : @ # & * ( )");
         } else if (inputString.length() > 1000) {
             throw new IllegalArgumentException("Input string must not exceed 1000 characters");
