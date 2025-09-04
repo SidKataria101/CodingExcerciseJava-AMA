@@ -73,8 +73,8 @@ public class App {
         // Input validation
         if (inputString == null || inputString.isEmpty()) {
             throw new IllegalArgumentException("Input string cannot be null or empty");
-        } else if (!inputString.matches("[a-zA-Z]+")) {
-            throw new IllegalArgumentException("Input string must contain only alphabetic letters (a-z, A-Z)");
+        } else if (!inputString.matches("[a-zA-Z\\s]+")) {
+            throw new IllegalArgumentException("Input string must contain only alphabetic letters (a-z, A-Z) and spaces");
         } else if (inputString.length() > 1000) {
             throw new IllegalArgumentException("Input string must not exceed 1000 characters");
         }
