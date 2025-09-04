@@ -28,6 +28,6 @@ To run the program, please do the follows:
 5. Your shifted string will be presented in the console
 
 # To know:
-The app takes in valid string inputs within the range of 0 to 1000. (Empty string is not considered as a valid string)
-This valid string can contain uppercase and lowercase characters including punctuation. (regex -> [a-zA-Z .,!?'-]+;:@#&*()]*)
-If you add additional whitespace in the string, they will be considered as valid characters. Eg: "Sid Kataria.     " -> 5 whitespaces.
+- The app takes in valid string inputs within the range of 0 to 1000. (Empty string is not considered as a valid string)
+- This valid string can contain uppercase and lowercase characters including punctuation, digits, and whitespaces. (regex -> [a-zA-Z0-9\\s.,!?'\\-;:@#&*() +)
+- If you add additional whitespace in the string, they will be considered as valid characters. Eg: "Sid Kataria " -> 2 whitespaces.
