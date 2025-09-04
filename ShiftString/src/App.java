@@ -6,17 +6,7 @@ public class App {
         Scanner scanner = new Scanner(System.in);
 
         // Input reading
-        String inputString = null;
-        while (true) {
-            System.out.println("Enter a string to shift in range(0, 1000]: ");
-            inputString = scanner.nextLine();
-            try {
-                validateString(inputString);
-                break; // Exit loop if valid
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-            }
-        }
+        String inputString = getValidatedStringInput(scanner);
 
         // Read shift positions
         System.out.println("Enter number of positions to shift in range(-1000,1000): ");
@@ -33,6 +23,18 @@ public class App {
 
         // Close the scanner
         scanner.close();
+    }
+
+    private static String getValidatedStringInput(Scanner scanner) {
+        while (true) {
+            System.out.println("Please enter a string in range(0, 1000]: ");
+            var inputString = scanner.nextLine();
+            try {
+                return validateString(inputString);
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
     /**
@@ -53,7 +55,7 @@ public class App {
      * @param inputString the string to validate
      * @throws IllegalArgumentException if the input is invalid
      */
-    private static void validateString(String inputString) {
+    private static String validateString(String inputString) {
         // Input validation
         if (inputString == null || inputString.isEmpty()) {
             throw new IllegalArgumentException("Input string cannot be null or empty");
@@ -62,7 +64,7 @@ public class App {
         } else if (inputString.length() > 1000) {
             throw new IllegalArgumentException("Input string must not exceed 1000 characters");
         } 
-        // Else input is valid
+        return inputString;
     }
 
     /**
