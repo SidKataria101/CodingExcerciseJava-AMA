@@ -9,13 +9,7 @@ public class App {
         String inputString = getValidatedStringInput(scanner);
 
         // Read shift positions
-        System.out.println("Enter number of positions to shift in range(-1000,1000): ");
-        while (!scanner.hasNextInt()) {
-            System.out.println("Please enter a valid integer for shift positions in range (-1000, 1000).");
-            scanner.next(); // Clear invalid input
-        }
-        int shiftPositions = scanner.nextInt();
-        validateInt(shiftPositions);
+        int shiftPositions = getValidatedShiftInput(scanner);
 
         // Perform the shift
         String result = shiftString(inputString, shiftPositions);
@@ -25,6 +19,26 @@ public class App {
         scanner.close();
     }
 
+    /**
+     * Prompts the user for a valid integer input and validates it.
+     * @param scanner the Scanner object for reading input
+     * @return a validated integer
+     */
+    private static int getValidatedShiftInput(Scanner scanner) {
+        System.out.println("Enter number of positions to shift in range(-1000,1000): ");
+        while (!scanner.hasNextInt()) {
+            System.out.println("Please enter a valid integer for shift positions in range (-1000, 1000).");
+            scanner.next(); // Clear invalid input
+        }
+        int shiftPositions = scanner.nextInt();
+        return validateInt(shiftPositions);
+    }
+
+    /**
+     * Prompts the user for a valid string input and validates it.
+     * @param scanner the Scanner object for reading input
+     * @return a validated string
+     */
     private static String getValidatedStringInput(Scanner scanner) {
         while (true) {
             System.out.println("Please enter a string in range(0, 1000]: ");
@@ -42,12 +56,12 @@ public class App {
      * @param shiftPositions the number of positions to validate
      * @throws IllegalArgumentException if the input is invalid
      */
-    private static void validateInt(int shiftPositions) {
+    private static int validateInt(int shiftPositions) {
         // Input validation for shift positions
         if (shiftPositions < -1000 || shiftPositions > 1000) {
             throw new IllegalArgumentException("Shift positions must be between -1000 and 1000");
         } 
-        // Else input is valid
+        return shiftPositions;
     }
 
     /**
@@ -59,11 +73,11 @@ public class App {
         // Input validation
         if (inputString == null || inputString.isEmpty()) {
             throw new IllegalArgumentException("Input string cannot be null or empty");
-        } else if (!inputString.matches("[a-zA-Z .,!?'-]+")) {
-            throw new IllegalArgumentException("Input string must contain only alphabetic characters, spaces, and basic punctuation (.,!?'-)");
+        } else if (!inputString.matches("[a-zA-Z .,!?'\\-;:@#&*()]+")) {
+            throw new IllegalArgumentException("Input string must contain only alphabetic characters, spaces, and the following punctuation: . , ! ? ' - ; : @ # & * ( )");
         } else if (inputString.length() > 1000) {
             throw new IllegalArgumentException("Input string must not exceed 1000 characters");
-        } 
+        }
         return inputString;
     }
 
