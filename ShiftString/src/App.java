@@ -6,21 +6,45 @@ public class App {
     private static final int MIN = -1000;
 
     public static void main(String[] args) throws Exception {
-        // Create a scanner object for input
         Scanner scanner = new Scanner(System.in);
 
-        // Input reading
-        String inputString = getValidatedStringInput(scanner);
+        boolean keepGoing = true;
+        while (keepGoing) {
+            // Input reading
+            String inputString = getValidatedStringInput(scanner);
 
-        // Read shift positions
-        int shiftPositions = getValidatedShiftInput(scanner);
+            // Read shift positions
+            int shiftPositions = getValidatedShiftInput(scanner);
 
-        // Perform the shift
-        String result = shiftString(inputString, shiftPositions);
-        System.out.println("\n" + "Shifted String: \"" + result + "\"");
+            // Perform the shift
+            String result = shiftString(inputString, shiftPositions);
+            System.out.println("\nShifted String: \"" + result + "\"");
 
-        // Close the scanner
+            // Ask if they want to go again
+            keepGoing = askToContinue(scanner);
+        }
+
+        System.out.println("Goodbye! Thank you :)");
         scanner.close();
+    }
+
+    /**
+     * Asks the user if they want to continue and validates the input.
+     * @param scanner the Scanner object for reading input
+     * @return true if the user wants to continue, false otherwise
+     */
+    private static boolean askToContinue(Scanner scanner) {
+        while (true) {
+            System.out.print("\nDo you want to go again? (y/n): ");
+            String answer = scanner.nextLine().trim().toLowerCase();
+            if (answer.equals("y")) {
+                return true;
+            } else if (answer.equals("n")) {
+                return false;
+            } else {
+                System.out.println("Please enter 'y' for yes or 'n' for no.");
+            }
+        }
     }
 
     /**
@@ -53,7 +77,7 @@ public class App {
      */
     private static String getValidatedStringInput(Scanner scanner) {
         while (true) {
-            System.out.println("Please enter a string with maximum 1000 characters including whitespaces: ");
+            System.out.println("\nPlease enter a string with maximum 1000 characters including whitespaces: ");
             var inputString = scanner.nextLine();
             try {
                 return validateString(inputString);
