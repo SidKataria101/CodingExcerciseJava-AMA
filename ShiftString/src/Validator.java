@@ -84,21 +84,34 @@ public class Validator {
     static String validateString(String inputString) {
         // Input validation
         if (inputString == null || inputString.isEmpty()) {
-            //Console.logError(inputString, new IllegalArgumentException(EMPTY_STRING_ERROR));
-            //Console.printError(EMPTY_STRING_ERROR);
             throw new IllegalArgumentException(EMPTY_STRING_ERROR);
         } else if (!VALID_STRING_PATTERN.matcher(inputString).matches()) {
-            //Console.logError(inputString, new IllegalArgumentException(INVALID_STRING_PATTERN_ERROR));
-            //Console.printError(inputString + " " + INVALID_STRING_PATTERN_ERROR);
             throw new IllegalArgumentException(INVALID_STRING_PATTERN_ERROR);
         } else if (inputString.length() > MAX_STRING_LENGTH) {
-            //Console.logError(inputString, new IllegalArgumentException(EXCEEDS_MAX_STRING_LENGTH_ERROR));
-            //Console.printError(EXCEEDS_MAX_STRING_LENGTH_ERROR);
             throw new IllegalArgumentException(EXCEEDS_MAX_STRING_LENGTH_ERROR);
         }
         return inputString;
     }
 
-
-
+    /**
+     * Asks the user if they want to continue and validates the input.
+     * @param scanner the Scanner object for reading input
+     * @return true if the user wants to continue, false otherwise
+     */
+    static boolean askToContinue(Scanner scanner) {
+        while (true) {
+            Console.printMessage("\nDo you want to go again? (y/n): ");
+            String answer = scanner.nextLine().trim().toLowerCase();
+            switch (answer) {
+                case "y":
+                    return true;
+                case "n":
+                    return false;
+                default:
+                    Console.printMessage("Invalid input. Please enter 'y' for yes or 'n' for no.");
+                    Console.logWarning(answer + " is not a valid input for continuation prompt.");
+                    continue;
+            }
+        }
+    }
 }
