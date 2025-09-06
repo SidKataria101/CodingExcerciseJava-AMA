@@ -21,16 +21,17 @@ Check if you have Java installed with the following command:
 - java -version
 
 To run the program, please do the follows:
-1. Clone the repo
-2. Using commandline, cd/go to the ShiftingCharInString/ShiftString/src using the following commands line prompts:
-    i. cd Coding*
-    ii. cd Shift*
-    iii. cd src
-3. Enter 'java App' in your commandPrompt/Terminal to start the program
-4. Enter valid string and a valid integer as prompted
-5. Your shifted string will be presented in the console
+1. Clone the repo or download the .zip file from the 'Code' dropdown.
+2. Using commandline, cd/go to the CodingExcerciseJava-AMA-main/ShiftString/src using the following commands line prompts:\
+    i. cd Coding* \
+    ii. cd Shift* \
+    iii. cd src 
+3. Enter 'javac App.java' in your commandPrompt/Terminal to compile the Java program.
+4. Enter 'java App' in your commandPrompt/Terminal to start the application.
+4. Enter valid string and a valid integer as prompted.
+5. Your shifted string will be presented in the console.
 
 ## To know:
 - The app takes in valid string inputs within the range of 0 to 1000. (Empty string is not considered as a valid string)
 - This valid string can contain uppercase and lowercase characters with whitespaces in between or after. (regex -> [a-zA-Z\\s]+)
-- If you add additional whitespace in the string, they will be considered as valid characters. Eg: "Sid Kataria " -> 2 whitespaces.
+- If you add additional whitespace in the string, they will be considered as valid characters. (Eg: "Sid Kataria " -> 2 whitespaces)
