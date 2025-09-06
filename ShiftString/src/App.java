@@ -2,8 +2,9 @@ import java.util.Scanner;
 
 public class App {
 
-    private static final int MAX = 1000;
-    private static final int MIN = -1000;
+    private static final int MAX_STRING_LENGTH = 1000;
+    private static final int MIN_SHIFT = -1000;
+    private static final int MAX_SHIFT = 1000;
 
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
@@ -37,12 +38,14 @@ public class App {
         while (true) {
             System.out.print("\nDo you want to go again? (y/n): ");
             String answer = scanner.nextLine().trim().toLowerCase();
-            if (answer.equals("y")) {
-                return true;
-            } else if (answer.equals("n")) {
-                return false;
-            } else {
-                System.out.println("Please enter 'y' for yes or 'n' for no.");
+            switch (answer) {
+                case "y":
+                    return true;
+                case "n":
+                    return false;
+                default:
+                    System.out.println("Invalid input. Please enter 'y' for yes or 'n' for no.");
+                    continue;
             }
         }
     }
@@ -94,7 +97,7 @@ public class App {
      */
     private static int validateInt(int shiftPositions) {
         // Input validation for shift positions
-        if (shiftPositions < MIN || shiftPositions > MAX) {
+        if (shiftPositions < MIN_SHIFT || shiftPositions > MAX_SHIFT) {
             throw new IllegalArgumentException("Shift positions must be between -1000 and 1000");
         } 
         return shiftPositions;
@@ -111,7 +114,7 @@ public class App {
             throw new IllegalArgumentException("Input string cannot be null or empty");
         } else if (!inputString.matches("[a-zA-Z\\s]+")) {
             throw new IllegalArgumentException("Input string must contain only alphabetic letters (a-z, A-Z) and spaces");
-        } else if (inputString.length() > MAX) {
+        } else if (inputString.length() > MAX_STRING_LENGTH) {
             throw new IllegalArgumentException("Input string must not exceed 1000 characters");
         }
         return inputString;

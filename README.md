@@ -1,4 +1,4 @@
-# CodingExcerciseJava-AMA
+## CodingExcerciseJava-AMA
 Character shifting in a string coding excersice in Java as given by AMA
 
 # Requirements:
@@ -15,7 +15,7 @@ Some examples:
 - Share your solution using Github.
 - Add README with information on how to run your solution and any extra information you find relevant for your solution.
 
-# How to run the program: 
+## How to run the program: 
 Please make sure you have Java installed on your machine to be able to run this program.
 Check if you have Java installed with the following command:
 - java -version
