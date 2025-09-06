@@ -1,3 +1,6 @@
+/**
+ * Shifter class to handle string shifting operations.
+ */
 public class Shifter {
     
     /**
@@ -9,7 +12,7 @@ public class Shifter {
     public static String shiftString(String str, int shift) {
         // Return the string as is if no shift is needed
         if (str == null || str.isEmpty() || shift == 0) {
-            ConsoleUI.logInfo(str + " requires no shifting.");
+            Console.logInfo(str + " requires no shifting.");
             return str;
         }
 
@@ -19,10 +22,10 @@ public class Shifter {
 
         if (shift < 0) {    // Left shift
             int leftShift = -shift;
-            ConsoleUI.logInfo(str + " will be left shifted by " + leftShift + " positions.");
+            Console.logInfo(str + " will be left shifted by " + leftShift + " positions.");
             return str.substring(leftShift) + str.substring(0, leftShift);
         } else {  // Right shift
-            ConsoleUI.logInfo(str + " will be right shifted by " + shift + " positions.");
+            Console.logInfo(str + " will be right shifted by " + shift + " positions.");
             return str.substring(len - shift) + str.substring(0, len - shift);
         }
     }
