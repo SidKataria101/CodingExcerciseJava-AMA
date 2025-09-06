@@ -25,7 +25,7 @@ To run the program, please do the follows:
 2. Using commandline, cd/go to the CodingExcerciseJava-AMA-main/ShiftString/src using the following commands line prompts:\
     i. cd Coding* \
     ii. cd Shift* \
-    iii. cd src \
+    iii. cd src 
 3. Enter 'javac App.java' in your commandPrompt/Terminal to compile the Java program
 4. Enter 'java App' in your commandPrompt/Terminal to start the application
 4. Enter valid string and a valid integer as prompted
