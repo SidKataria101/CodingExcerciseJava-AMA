@@ -1,2 +1,6 @@
 #MacOS default files
 .DS_Store
+
+*.class
+/bin/
+/lib/
