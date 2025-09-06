@@ -33,7 +33,7 @@ cd CodingExcerciseJava-AMA-main/ShiftString/src
 ```
 4. Compile and run the program:
 ```
-javac App.java && java App
+javac *.java && java App
 ```
 4. Enter valid string and a valid integer as prompted.
 5. Your shifted string will be presented in the console.

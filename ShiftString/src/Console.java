@@ -4,9 +4,14 @@ import java.util.logging.Logger;
 /**
  * ConsoleUI class to handle all console interactions and logging.
  */
-public class ConsoleUI {
+public class Console {
         
     private static final Logger logger = Logger.getLogger("ShiftStringLogger");
+
+    // ANSI color codes for console output
+    private static final String ANSI_GREEN = "\u001B[32m";
+    private static final String ANSI_RESET = "\u001B[0m";
+    private static final String ANSI_RED = "\u001B[31m";
 
     /**
      * Asks the user if they want to continue and validates the input.
@@ -42,7 +47,7 @@ public class ConsoleUI {
             String line = scanner.nextLine().trim();
             if (line.isEmpty()) {
                 logWarning("Empty input for shift positions.");
-                printMessage("Please enter a valid integer for shift positions in range (-1000, 1000).");
+                printError("Please enter a valid integer for shift positions in range (-1000, 1000).");
                 continue;
             }
             try {
@@ -50,10 +55,10 @@ public class ConsoleUI {
                 return Validator.validateInt(shiftPositions);
             } catch (NumberFormatException e) {
                 logWarning(line + " is not a valid integer input for shift positions.");
-                printMessage("Please enter a valid integer for shift positions in range (-1000, 1000).");
+                printError("Please enter a valid integer for shift positions in range (-1000, 1000).");
             } catch (IllegalArgumentException e) {
                 logWarning("Illegal argument in getValidationShiftInput() " + e.getMessage());
-                printMessage(e.getMessage());
+                printError(e.getMessage());
             }
         }
     }
@@ -71,7 +76,7 @@ public class ConsoleUI {
                 return Validator.validateString(inputString);
             } catch (IllegalArgumentException e) {
                 logWarning("Illegal argument in getValidationStringInput() " + e.getMessage());
-                printMessage(e.getMessage());
+                printError(e.getMessage());
             }
         }
     }
@@ -83,7 +88,10 @@ public class ConsoleUI {
         printMessage("You can shift characters in a string by a specified number of positions.");
     }
     static void printMessage(String message) {
-        System.out.println(message);
+        System.out.println(ANSI_GREEN + message + ANSI_RESET);
+    }
+    static void printError(String error) {
+        System.out.println(ANSI_RED + error + ANSI_RESET);
     }
 
     // Logging methods
