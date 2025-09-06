@@ -33,7 +33,7 @@ public class App {
             boolean keepGoing = true;
             while (keepGoing) {
                 processSingleShift(scanner);
-                keepGoing = Console.askToContinue(scanner);
+                keepGoing = Validator.askToContinue(scanner);
             }
         }
 
@@ -46,10 +46,10 @@ public class App {
      */
     private static void processSingleShift(Scanner scanner) {
         // Input string
-        String inputString = Console.getValidatedStringInput(scanner);
+        String inputString = Validator.getValidatedStringInput(scanner);
 
         // Input shift
-        int shiftPositions = Console.getValidatedShiftInput(scanner);
+        int shiftPositions = Validator.getValidatedShiftInput(scanner);
 
         // Perform shift
         String result = Shifter.shiftString(inputString, shiftPositions);
