@@ -1,5 +1,8 @@
 import java.util.regex.Pattern;
 
+/**
+ * Validator class to handle input validations.
+ */
 public class Validator {
     
     // Constants

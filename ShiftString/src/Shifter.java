@@ -1,3 +1,6 @@
+/**
+ * Shifter class to handle string shifting operations.
+ */
 public class Shifter {
     
     /**

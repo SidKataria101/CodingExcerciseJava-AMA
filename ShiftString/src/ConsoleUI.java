@@ -1,6 +1,9 @@
 import java.util.Scanner;
 import java.util.logging.Logger;
 
+/**
+ * ConsoleUI class to handle all console interactions and logging.
+ */
 public class ConsoleUI {
         
     private static final Logger logger = Logger.getLogger("ShiftStringLogger");

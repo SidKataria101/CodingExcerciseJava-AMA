@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+/**
+ * Main application class to run the ShiftString program.
+ */
 public class App {
 
     /**
