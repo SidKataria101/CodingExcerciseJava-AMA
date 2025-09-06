@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 
 public class App {
 
@@ -9,6 +10,8 @@ public class App {
     private static final int MAX_STRING_LENGTH = 1000;
     private static final int MIN_SHIFT = -1000;
     private static final int MAX_SHIFT = 1000;
+    private static final Pattern VALID_STRING_PATTERN = Pattern.compile("[a-zA-Z\\s]+");
+
 
     /**
      * Main method to start the application.
@@ -22,7 +25,6 @@ public class App {
         } catch (Exception e) {
             logError("An unexpected error occurred", e);
             printMessage("An unexpected error occurred. Please try again.");
-            e.printStackTrace();
         }
 
         logInfo("Application ended");
@@ -150,7 +152,7 @@ public class App {
         if (inputString == null || inputString.isEmpty()) {
             logError(inputString, new IllegalArgumentException("Input string cannot be null or empty"));
             throw new IllegalArgumentException("Input string cannot be null or empty");
-        } else if (!inputString.matches("[a-zA-Z\\s]+")) {
+        } else if (!VALID_STRING_PATTERN.matcher(inputString).matches()) {
             logError(inputString, new IllegalArgumentException("Input string must contain only alphabetic letters (a-z, A-Z) and spaces"));
             throw new IllegalArgumentException("Input string must contain only alphabetic letters (a-z, A-Z) and spaces");
         } else if (inputString.length() > MAX_STRING_LENGTH) {
