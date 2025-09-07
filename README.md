@@ -39,6 +39,11 @@ javac *.java && java App
 5. Your shifted string will be presented in the console.
 
 ## To know:
-- The app takes in valid string inputs within the range of `0` to `1000`. (Empty string is not considered as a valid string)
-- This valid string can contain uppercase and lowercase characters with whitespaces in between or after. (regex -> `[a-zA-Z\\s]+`)
+- The app takes valid string which can contain uppercase and lowercase characters with whitespaces in between or after. (regex -> `[a-zA-Z\\s]+`)
+- The app takes in valid integer inputs within the range of `-1000` to `1000`. (Empty input is not considered as a valid integer)
 - If you add additional whitespace in the string, they will be considered as valid characters. (Eg: "Sid Kataria " -> 2 whitespaces)
+Some examples:
+```
+- Input1 = “ama”, Input2 = 0 -> Output = “ama”
+- Input1 = “sid kataria”, Input2 = -4 -> Output = “katariasid ”
+```
